@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const todoList = () => {
   all = [];
   const add = (todoItem) => {
@@ -8,7 +9,9 @@ const todoList = () => {
   };
 
   const overdue = () => {
-    return all.filter((todos) => todos.dueDate == yesterday);
+    return all.filter(
+      (todos) => todos.dueDate < new Date().toLocaleDateString("en-CA")
+    );
   };
 
   const dueToday = () => {
@@ -17,7 +20,9 @@ const todoList = () => {
     // ..
     // ..
     // ..
-    return all.filter((todos) => todos.dueDate == today);
+    return all.filter(
+      (todos) => todos.dueDate == new Date().toLocaleDateString("en-CA")
+    );
   };
 
   const dueLater = () => {
@@ -26,7 +31,9 @@ const todoList = () => {
     // ..
     // ..
     // ..
-    return all.filter((todos) => todos.dueDate == tomorrow);
+    return all.filter(
+      (todos) => todos.dueDate > new Date().toLocaleDateString("en-CA")
+    );
   };
 
   const toDisplayableList = (list) => {
@@ -57,4 +64,4 @@ const todoList = () => {
   };
 };
 
-module.exports =todoList;
+module.exports = todoList;
